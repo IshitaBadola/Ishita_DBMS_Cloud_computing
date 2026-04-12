@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Form</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <h2>User registration for workshop in ML in biology</h2>
+
+    <form onsubmit="return validateForm()" action="/cgi-bin/register.py" method="post">
+        <fieldset>
+            <label>
+                Name:
+            </label>
+            <input type="text" id="name">
+            <br><br>
+
+            <label>
+                Email:
+            </label>
+            <input type="text" id="email">
+            <br><br>
+
+            <label>
+                Password:
+            </label>
+            <input type="password" name="password" id="password" required>
+            <br><br>
+
+            <label>
+                Confirm Password:
+            </label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            <br><br>
+
+            <label>
+                Category:
+            </label>
+            <input type="radio" name="category" id="student" value="student"> Student
+            <input type="radio" name="category" id="professional" value="professional"> Professional
+            <br><br>
+
+            <label>
+                Date of birth:
+            </label>
+            <input type="date" name="date" id="date">
+            <br><br>
+
+            <label>
+                State:
+            </label>
+            <select name="state" id="state">
+                <option>Maharashtra</option>
+                <option>Karanataka</option>
+                <option>Uttrakhand</option>
+            </select>
+            <br><br>
+
+            <label>
+                Comments:
+            </label>
+            <textarea id="comments" rows="4" cols="30" placeholder="Any questions regarding the ML workshop?"></textarea>
+            <br><br>
+
+            <label>
+                <input type="checkbox" id="terms" required> I agree to the given Terms and Conditions
+            </label>
+            <br><br>
+
+            <button type="submit">Register</button>
+            <button type="reset">Reset Form</button>
+        </fieldset>
+    </form>
+
+            
+
+            <!--Query form-->
+            <form onsubmit="return validateForm()" action="/cgi-bin/query.py" method="post">
+            <button type="submit" name="query">Get list of users</button>
+            </form>
+
+            <!--Delete Form-->
+            <form action="/cgi-bin/delete.py" method="post">
+            <label>Enter Email to Delete:</label>
+            <input type="email" name="email" required>
+            <br><br>
+            <button type="submit">Delete User</button>
+            </form>
+
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
