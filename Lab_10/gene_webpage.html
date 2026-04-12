@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gene Details Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 { color: #333; }
+        h2 { color: #555; }
+        .result-box {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            min-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gene Detail Search</h1>
+ 
+    <!-- Gene Details -->
+    <h2>Search Gene Details</h2>
+    <form id="geneForm" action="/cgi-bin/Lab10/controller.py" method="post">
+        <input type="hidden" name="action" value="gene">
+        Enter Gene Name:
+        <input type="text" name="gene" id="geneName" placeholder="e.g. ENSG00000012048">
+        <button type="submit">Search Gene</button>
+    </form>
+ 
+    <!-- Gene Transcripts -->
+    <h2>Gene Transcripts</h2>
+    <form id="transcriptForm" action="/cgi-bin/Lab10/controller.py" method="post">
+        <input type="hidden" name="action" value="transcripts">
+        Enter Gene Name:
+        <input type="text" name="gene" id="transcriptGeneName" placeholder="e.g. ENSG00000012048">
+        <button type="submit">Search Transcripts</button>
+    </form>
+ 
+    <!-- Genes in Chromosome -->
+    <h2>Genes in Chromosome</h2>
+    <form id="chromosomeForm" action="/cgi-bin/Lab10/controller.py" method="post">
+        <input type="hidden" name="action" value="chromosome">
+        Enter Chromosome:
+        <input type="text" name="chr" id="chromosome" placeholder="e.g. 1">
+        <button type="submit">Search Chromosome</button>
+    </form>
+
+    <!-- Link JS -->
+    <script src="js_for_gene.js"></script>
+ 
+</body>
+</html>
