@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+</head>
+
+<body>
+
+<h2>Student List</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th>DOB</th>
+        </tr>
+    </thead>
+
+    <tbody id="tableBody"></tbody>
+</table>
+
+<script>
+fetch('http://localhost:8012/students')
+.then(res => res.json())
+.then(data => {
+
+    const tableBody = document.getElementById('tableBody');
+
+    data.forEach(student => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${student.student_id}</td>
+            <td>${student.student_name}</td>
+            <td>${student.department}</td>
+            <td>${student.email}</td>
+            <td>${new Date(student.DOB).toLocaleDateString()}</td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+
+})
+.catch(err => console.error(err));
+</script>
+
+</body>
+</html>
